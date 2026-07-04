@@ -7,7 +7,11 @@ Current Checkpoint: 1
 
 ## Objective
 
-The current game objective is to collect 10 of each resource.
+The current game objective is to collect 30 apples, 25 pears, and 15 ores. 
+
+Score is calculated with the following equation.
+
+Score = ((2 * (apple surplus) + 30) + (2 * (pear surplus) + 25) + (2 * (ore surplus) + 15)) / number of days it took to collect all the resources
 
 --
 
