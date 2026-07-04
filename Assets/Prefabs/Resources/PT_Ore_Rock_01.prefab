@@ -99,7 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableResource
   resourceName: Ore
-  amountPerCollect: 1
+  minPossibleAmount: 1
+  maxPossibleAmount: 2
   usesRemaining: 1
   promptText: Press E to interact
   animationTrigger: GatherOre

@@ -62,7 +62,7 @@ public class PlayerInteraction : MonoBehaviour
 
         if (currentResource != null && !isInteracting)
         {
-            promptText.text = "Press E to interact";
+            promptText.text = currentResource.promptText;
             promptText.gameObject.SetActive(true);
         }
         else

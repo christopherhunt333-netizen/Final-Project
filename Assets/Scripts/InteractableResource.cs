@@ -3,7 +3,8 @@ using UnityEngine;
 public class InteractableResource : MonoBehaviour
 {
     public string resourceName = "Apple";
-    public int amountPerCollect = 1;
+    public int minPossibleAmount = 2;
+    public int maxPossibleAmount = 3;
     public int usesRemaining = 1;
 
     public string promptText = "Press E to interact";
@@ -28,6 +29,7 @@ public class InteractableResource : MonoBehaviour
 
         if (resourceCounter != null)
         {
+            int amountPerCollect = Random.Range(minPossibleAmount, maxPossibleAmount + 1);
             resourceCounter.AddResource(resourceName, amountPerCollect);
         }
 

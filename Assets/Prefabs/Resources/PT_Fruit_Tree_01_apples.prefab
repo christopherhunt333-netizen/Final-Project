@@ -283,7 +283,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableResource
   resourceName: Apple
-  amountPerCollect: 1
+  minPossibleAmount: 2
+  maxPossibleAmount: 4
   usesRemaining: 1
   promptText: Press E to interact
   animationTrigger: PickFruit

@@ -34,6 +34,7 @@ public class DayNightCycle : MonoBehaviour
 
         if (timeOfDay >= 1f)
         {
+            FindFirstObjectByType<GameManager>().UpdateDayCount();
             timeOfDay = 0f;
         }
 

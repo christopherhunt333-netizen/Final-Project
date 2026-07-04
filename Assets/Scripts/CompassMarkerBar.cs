@@ -11,7 +11,7 @@ public class CompassMarkerBar : MonoBehaviour
 
     private readonly string[] labels =
     {
-        "N", "NE", "E", "SE", "S", "Sw", "W", "NW"
+        "N", "NE", "E", "SE", "S", "SW", "W", "NW"
     };
 
     private TMP_Text[] markers;
