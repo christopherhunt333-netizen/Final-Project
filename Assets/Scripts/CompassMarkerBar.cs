@@ -6,7 +6,7 @@ public class CompassMarkerBar : MonoBehaviour
     public Transform player;
     public RectTransform markerContainer;
     public TMP_Text markerPrefab;
-    private float panelWidth = 500f;
+    private float panelWidth = 400f;
     float pixelsPerDegree = 4f;
 
     private readonly string[] labels =

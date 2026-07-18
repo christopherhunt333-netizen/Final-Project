@@ -5,13 +5,11 @@ using TMPro;
 public class ResourceCounter : MonoBehaviour
 {
     public TextMeshProUGUI appleText;
-    public TextMeshProUGUI pearText;
     public TextMeshProUGUI oreText;
 
     GameManager gameManager;
 
     private int apples;
-    private int pears;
     private int ores;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,7 +22,6 @@ public class ResourceCounter : MonoBehaviour
     private void UpdateUI()
     {
         appleText.text = "Apples: " + apples + " / " + gameManager.requiredApples;
-        pearText.text = "Pears: " + pears + " / " + gameManager.requiredPears;
         oreText.text = "Ores: " + ores + " / " + gameManager.requiredOres;
     }
 
@@ -33,10 +30,6 @@ public class ResourceCounter : MonoBehaviour
         if (resourceName == "Apple")
         {
             apples += amount;
-        }
-        else if (resourceName == "Pear")
-        {
-            pears += amount;
         }
         else if (resourceName == "Ore")
         {
@@ -49,7 +42,7 @@ public class ResourceCounter : MonoBehaviour
 
     public bool ConditionCheck()
     {
-        bool isConditionMet = (apples >= gameManager.requiredApples) && (pears >= gameManager.requiredPears) && (ores >= gameManager.requiredOres);
+        bool isConditionMet = (apples >= gameManager.requiredApples) && (ores >= gameManager.requiredOres);
 
         return isConditionMet;
     }
@@ -59,10 +52,6 @@ public class ResourceCounter : MonoBehaviour
         if (resource == "Apple")
         {
             return apples;
-        }
-        if (resource == "Pear")
-        {
-            return pears;
         }
         if (resource == "Ore")
         {

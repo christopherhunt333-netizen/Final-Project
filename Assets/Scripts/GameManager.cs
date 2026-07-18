@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
     ResourceCounter resourceCounter;
 
     public int requiredApples;
-    public int requiredPears;
     public int requiredOres;
 
     private int dayCount;
@@ -70,11 +69,9 @@ public class GameManager : MonoBehaviour
         int score = 0;
 
         int appleScore = CalculateResourceScore("Apple");
-        int pearScore = CalculateResourceScore("Pear");
         int oreScore = CalculateResourceScore("Ore");
 
         score += appleScore;
-        score += pearScore;
         score += oreScore;
 
         score /= dayCount;
@@ -89,10 +86,6 @@ public class GameManager : MonoBehaviour
         if (resource == "Apple")
         {
             resourceScore = 2 * (resourceCounter.GetResourceCount(resource) - requiredApples) + requiredApples;
-        }
-        else if (resource == "Pear")
-        {
-            resourceScore = 2 * (resourceCounter.GetResourceCount(resource) - requiredPears) + requiredPears;
         }
         else if (resource == "Ore")
         {
