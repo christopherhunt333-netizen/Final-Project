@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 271b3a3d3a26e4f07bf8ac1a8a90577d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableResource
-  resourceName: Ore
+  item: {fileID: 11400000, guid: 2d5ab4923d7444c81baf1864364922a1, type: 2}
   minPossibleAmount: 1
   maxPossibleAmount: 2
   usesRemaining: 1

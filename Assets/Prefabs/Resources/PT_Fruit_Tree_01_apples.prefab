@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 271b3a3d3a26e4f07bf8ac1a8a90577d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableResource
-  resourceName: Apple
+  item: {fileID: 11400000, guid: e5ff340a6a18d46aaa075588e1ded3d8, type: 2}
   minPossibleAmount: 2
   maxPossibleAmount: 4
   usesRemaining: 1

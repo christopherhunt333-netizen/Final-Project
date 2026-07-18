@@ -26,6 +26,7 @@ Score = ((2 * (apple surplus) + 30) + (2 * (pear surplus) + 25) + (2 * (ore surp
 | Interact | E |
 | Jump | Spacebar |
 | Sprint | Left Shift |
+| Inventory | I |
 
 ---
 
@@ -76,6 +77,8 @@ This project uses assets from the following:
 Unity Assets:
 - https://assetstore.unity.com/packages/3d/environments/low-poly-environment-nature-free-lowpoly-medieval-fantasy-series-187052
 - https://assetstore.unity.com/packages/essentials/starter-assets-thirdperson-urp-196526
+- https://assetstore.unity.com/packages/3d/props/weapons/mid-poly-axes-collection-326804
+- https://assetstore.unity.com/packages/2d/gui/icons/2d-strategy-game-icons-281449
 
 Pixabay Assets:
 - https://pixabay.com/sound-effects/nature-night-forest-with-frogs-and-crickets-for-sleep-451153/
@@ -85,3 +88,7 @@ Pixabay Assets:
 Mixamo Assets:
 - https://www.mixamo.com/#/?page=1&query=pick
 - https://www.mixamo.com/#/?page=1&query=gather
+- https://www.mixamo.com/#/?page=1&query=axe
+
+Kenney Assets:
+- https://kenney.nl/assets/ui-pack-adventureLinks to an external site.

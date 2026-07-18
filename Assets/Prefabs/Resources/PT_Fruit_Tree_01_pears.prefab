@@ -100,8 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 271b3a3d3a26e4f07bf8ac1a8a90577d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableResource
-  resourceName: Pear
-  amountPerCollect: 3
+  item: {fileID: 11400000, guid: b66fad34467534f0f8c5510237b890f2, type: 2}
+  minPossibleAmount: 2
+  maxPossibleAmount: 3
   usesRemaining: 1
   promptText: Press E to interact
   animationTrigger: PickFruit
