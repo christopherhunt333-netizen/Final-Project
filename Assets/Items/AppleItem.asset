@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Apple
   icon: {fileID: 21300000, guid: 6ba59f7ff7e67fc4f99b39c49e550579, type: 3}
-  maxStackSize: 5
+  maxStackSize: 10
+  scoreMultiplier: 1

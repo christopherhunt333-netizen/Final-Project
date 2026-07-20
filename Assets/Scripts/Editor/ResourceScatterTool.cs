@@ -40,7 +40,7 @@ public class ResourceScatterTool : EditorWindow
             true
         );
 
-        amount = EditorGUILayout.IntField("Amout", amount);
+        amount = EditorGUILayout.IntField("Amount", amount);
         minDistance = EditorGUILayout.FloatField("Minimum Distance", minDistance);
 
         if (GUILayout.Button("Scatter Resource"))

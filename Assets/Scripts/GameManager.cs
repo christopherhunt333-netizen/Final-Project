@@ -7,33 +7,32 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject gameOverPanel;
+    public GameObject gameOverPanelFailure;
     public TextMeshProUGUI scoreText;
-
-    ResourceCounter resourceCounter;
-
-    public int requiredApples;
-    public int requiredOres;
+    public TextMeshProUGUI gameOverText;
+    public TextMeshProUGUI gameOverFailedText;
+    public TextMeshProUGUI dayText;
 
     private int dayCount;
+    private float score = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         dayCount = 0;
-        resourceCounter = GetComponent<ResourceCounter>();
+
+        if (dayText != null)
+        {
+            dayText.text = "Day: " + dayCount;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (resourceCounter == null)
+        if (dayText != null)
         {
-            return;
-        }
-
-        if (resourceCounter.ConditionCheck())
-        {
-            GameOver();
+            dayText.text = "Day: " + dayCount.ToString();
         }
 
         if (Time.timeScale == 0f && Keyboard.current.spaceKey.isPressed)
@@ -42,13 +41,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void GameOver()
+    public void GameOver()
     {
         Time.timeScale = 0f;
 
-        int score = CalculateTotalScore();
+        CalculateScore();
 
-        scoreText.text = "Score: " + score;
+        scoreText.text = "Score: " + Mathf.FloorToInt(score).ToString();
+        gameOverText.gameObject.SetActive(true);
         gameOverPanel.SetActive(true);
 
     }
@@ -64,36 +64,31 @@ public class GameManager : MonoBehaviour
         dayCount++;
     }
 
-    private int CalculateTotalScore()
+    private void CalculateScore()
     {
-        int score = 0;
+        InventorySlotData[] slots = GetComponent<Inventory>().slots;
 
-        int appleScore = CalculateResourceScore("Apple");
-        int oreScore = CalculateResourceScore("Ore");
+        foreach (InventorySlotData slot in slots)
+        {
+            if (slot == null)
+            {
+                continue;
+            }
 
-        score += appleScore;
-        score += oreScore;
+            float multiplier = slot.item.scoreMultiplier;
+            int slotAmount = slot.amount;
 
-        score /= dayCount;
-        
-        return score;
+            score += multiplier * slotAmount;
+        }
     }
 
-    private int CalculateResourceScore(string resource)
+    public void FailureGameOver()
     {
-        int resourceScore = 0;
+        Time.timeScale = 0f;
+        scoreText.text = "Did Not Complete";
+        gameOverFailedText.gameObject.SetActive(true);
+        gameOverPanelFailure.SetActive(true);
 
-        if (resource == "Apple")
-        {
-            resourceScore = 2 * (resourceCounter.GetResourceCount(resource) - requiredApples) + requiredApples;
-        }
-        else if (resource == "Ore")
-        {
-            resourceScore = 2 * (resourceCounter.GetResourceCount(resource) - requiredOres) + requiredOres;
-        }
-
-        return resourceScore;
-         
     }
 
 }

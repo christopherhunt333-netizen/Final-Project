@@ -8,8 +8,9 @@ public class PlayerInteraction : MonoBehaviour
     public float interactionRange = 3;
     public TextMeshProUGUI promptText;
 
+    public GameObject torch;
     public Inventory inventory;
-    private InteractableResource currentResource;
+    private InteractableObject currentObject;
     private Animator animator;
     private bool isInteracting;
 
@@ -27,43 +28,44 @@ public class PlayerInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FindNearbyResource();
+        FindNearbyObject();
     }
 
-    private void FindNearbyResource()
+    private void FindNearbyObject()
     {
         Collider[] hits = Physics.OverlapSphere(transform.position, interactionRange);
 
-        InteractableResource closestResource = null;
+        InteractableObject closestObject = null;
         float closestDistance = Mathf.Infinity;
 
         foreach (Collider hit in hits)
         {
-            InteractableResource resource = hit.GetComponentInParent<InteractableResource>();
-            if (resource == null)
+            InteractableObject interactableObject = hit.GetComponentInParent<InteractableObject>();
+
+            if (interactableObject == null)
             {
                 continue;
             }
 
-            float distance = Vector3.Distance(transform.position, resource.transform.position);
+            float distance = Vector3.Distance(transform.position, interactableObject.transform.position);
 
             if (distance < closestDistance)
             {
                 closestDistance = distance;
-                closestResource = resource;
+                closestObject = interactableObject;
             }
         }
 
-        currentResource = closestResource;
+        currentObject = closestObject;
 
         if (promptText == null)
         {
             return;
         }
 
-        if (currentResource != null && !isInteracting)
+        if (currentObject != null && !isInteracting)
         {
-            promptText.text = currentResource.promptText;
+            promptText.text = currentObject.promptText;
             promptText.gameObject.SetActive(true);
         }
         else
@@ -79,7 +81,7 @@ public class PlayerInteraction : MonoBehaviour
             return;
         }
 
-        if (currentResource == null || isInteracting)
+        if (currentObject == null || isInteracting)
         {
             return;
         }
@@ -96,20 +98,37 @@ public class PlayerInteraction : MonoBehaviour
             promptText.gameObject.SetActive(false);
         }
 
-        if (animator != null && !string.IsNullOrEmpty(currentResource.animationTrigger))
+        if (animator != null && !string.IsNullOrEmpty(currentObject.animationTrigger))
         {
-            animator.SetTrigger(currentResource.animationTrigger);
+            animator.SetTrigger(currentObject.animationTrigger);
         }
 
         yield return new WaitForSeconds(6.1f);
 
-        if (currentResource != null)
+        if (currentObject != null)
         {
-            currentResource.Interact(inventory);
+            currentObject.Interact(inventory);
         }
 
         yield return new WaitForSeconds(0.3f);
 
         isInteracting = false;
+    }
+
+    public void OnToggleTorch(InputValue value)
+    {
+        if (!value.isPressed)
+        {
+            return;
+        }
+
+        if (torch == null)
+        {
+            return;
+        }
+        
+        bool currentState = torch.activeSelf;
+        torch.SetActive(!currentState);
+
     }
 }

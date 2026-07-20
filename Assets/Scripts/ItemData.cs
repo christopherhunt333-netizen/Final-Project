@@ -6,4 +6,5 @@ public class ItemData : ScriptableObject
     public string itemName;
     public Sprite icon;
     public int maxStackSize = 5;
+    public float scoreMultiplier;
 }

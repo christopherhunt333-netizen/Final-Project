@@ -7,11 +7,11 @@ Current Checkpoint: 1
 
 ## Objective
 
-The current game objective is to collect 30 apples, 25 pears, and 15 ores. 
+The objective of the game is reach the altar at the golden temple and pick up items along the way. Find the button at the obelisk to find the golden temple.
 
 Score is calculated with the following equation.
 
-Score = ((2 * (apple surplus) + 30) + (2 * (pear surplus) + 25) + (2 * (ore surplus) + 15)) / number of days it took to collect all the resources
+Score = Sum(numOfItem * ItemMultipler)
 
 --
 
@@ -27,6 +27,7 @@ Score = ((2 * (apple surplus) + 30) + (2 * (pear surplus) + 25) + (2 * (ore surp
 | Jump | Spacebar |
 | Sprint | Left Shift |
 | Inventory | I |
+| Toggle Torch | T |
 
 ---
 
@@ -89,6 +90,7 @@ Mixamo Assets:
 - https://www.mixamo.com/#/?page=1&query=pick
 - https://www.mixamo.com/#/?page=1&query=gather
 - https://www.mixamo.com/#/?page=1&query=axe
+- https://www.mixamo.com/#/?page=1&query=press
 
 Kenney Assets:
 - https://kenney.nl/assets/ui-pack-adventureLinks to an external site.

@@ -1,18 +1,19 @@
 using UnityEngine;
 
-public class InteractableResource : MonoBehaviour
+public class InteractableResource : InteractableObject
 {
     public ItemData item;
     public int minPossibleAmount = 2;
     public int maxPossibleAmount = 3;
-    public int usesRemaining = 1;
-
-    public string promptText = "Press E to interact";
-    public string animationTrigger = "PickFruit";
-
     public bool destroyWhenEmpty = true;
 
-    public void Interact(Inventory inventory)
+    public override void Interact(Inventory inventory)
+    {
+
+        ResourceInteract(inventory);
+    }
+
+    private void ResourceInteract(Inventory inventory)
     {
         if (usesRemaining <= 0)
         {
