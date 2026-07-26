@@ -12,6 +12,8 @@ public class HazardInteraction : MonoBehaviour
 
     public void OnTriggerEnter(Collider collider)
     {
+        Debug.Log("Hazard Collider Hit");
+        
         if (collider.CompareTag("Player"))
         {
             collider.gameObject.GetComponent<PlayerStats>().TakeDamage(damageDealt);

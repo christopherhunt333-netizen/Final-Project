@@ -36,4 +36,15 @@ public class PlayerStats : MonoBehaviour
             healthText.text = "Health: " + health.ToString();
         }
     }
+
+    public void OnTriggerEnter(Collider collider)
+    {
+        Debug.Log("Hazard Collider Hit");
+        
+        if (collider.CompareTag("Hazard"))
+        {
+            TakeDamage(1);
+        }
+
+    }
 }
