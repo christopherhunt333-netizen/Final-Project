@@ -1,7 +1,6 @@
 # Wildspace — Final Project
 
-Wildspace is a wilderness survival game. This is an unfinished game. 
-Current Checkpoint: 1
+Wildspace is a wilderness survival game.
 
 ---
 
